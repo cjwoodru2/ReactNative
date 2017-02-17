@@ -8,11 +8,14 @@ import AlbumList from './src/components/AlbumList';
 
 // create a Component
 const App = () => (
-  <View>
+  // Adding flex: 1 to root view element allows content to full
+  // the full view area of the device without being cut off
+  <View style={{ flex: 1 }}>
     <Header headerText={'Albums'} />
     <AlbumList />
   </View>
 );
+
 
 
 // Render it to the device
