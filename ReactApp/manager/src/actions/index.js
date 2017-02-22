@@ -4,3 +4,10 @@ export const emailChanged = (text) => {
     payload: text
   };
 };
+
+export const passwordChanged = (text) => {
+  return {
+    type: 'PASSWORD_CHANGED',
+    payload: text
+  }
+}

@@ -1,9 +1,13 @@
-const INITAL_STATE = {email: ''}
+const INITAL_STATE = {
+    email: '',
+  password: ''}
 
-export default (state = INITAL_STATE, action) {
+export default (state = INITAL_STATE, action) => {
   switch (action.type) {
     case 'EMAIL_CHANGED':
-      
+      return { ...state, email: action.payload };
+    case 'PASSWORD_CHANGED':
+      return {...state, password: action.payload };
     default:
       return state;
   }
