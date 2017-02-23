@@ -13,6 +13,11 @@ class LoginForm extends Component {
     this.props.passwordChanged(text);
   }
 
+  onButtonPress() {
+    const { email,  password } = this.props;
+    this.props.loginUser({ email, password });
+  }
+
   render() {
     return (
       <Card>
@@ -35,8 +40,12 @@ class LoginForm extends Component {
           />
         </CardSection>
 
+        <Text style={styles.errorTextStyle}>
+          {this.props.error}
+        </Text>
+
         <CardSection>
-          <Button>
+          <Button onPress={this.onButtonPress.bind(this)}>
             Login
           </Button>
         </CardSection>
@@ -45,11 +54,18 @@ class LoginForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    email: state.auth.email,
-    password: state.auth.password
+const styles = {
+  errorTextStyle: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'red'
   }
+}
+
+const mapStateToProps = state => {
+  const { email, password, error } = state.auth;
+
+  return { email, password, error }
 };
 
 export default connect(mapStateToProps, actions)(LoginForm);
