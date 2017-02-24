@@ -4,9 +4,8 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
-import { Header } from './components/common';
-import LoginForm from './components/LoginForm';
 import firebase from 'firebase';
+import Router from './router';
 
 
 class App extends Component {
@@ -26,14 +25,10 @@ class App extends Component {
 
     return (
       <Provider store={store}>
-        <View>
-          <Header headerText='Mic Check!' />
-          <LoginForm />
-        </View>
+          <Router />
       </Provider>
     )
   }
 }
-
 
 export default App;
