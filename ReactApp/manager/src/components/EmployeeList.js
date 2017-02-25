@@ -5,7 +5,6 @@ import { ListView } from 'react-native';
 import { employeesFetch } from '../actions';
 import ListItem from './ListItem';
 
-
 class EmployeeList extends Component {
   componentWillMount() {
     this.props.employeesFetch();
@@ -14,9 +13,10 @@ class EmployeeList extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // nextProps are teh next set of props this componenet
+    // nextProps are the next set of props that this component
     // will be rendered with
     // this.props is still the old set of props
+
     this.createDataSource(nextProps);
   }
 
@@ -28,25 +28,24 @@ class EmployeeList extends Component {
     this.dataSource = ds.cloneWithRows(employees);
   }
 
-  renderRow (employee) {
-    return <ListItem employee={employee} />
+  renderRow(employee) {
+    return <ListItem employee={employee} />;
   }
 
   render() {
-    console.log(this.props);
     return (
       <ListView
         enableEmptySections
         dataSource={this.dataSource}
         renderRow={this.renderRow}
       />
-    )
+    );
   }
 }
 
 const mapStateToProps = state => {
   const employees = _.map(state.employees, (val, uid) => {
-    return{ ...val, uid };
+    return { ...val, uid };
   });
 
   return { employees };

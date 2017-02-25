@@ -1,11 +1,11 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import { Text, TouchableWithoutFeedback, View } from 'react-native';
-import { Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import { CardSection } from './common';
 
 class ListItem extends Component {
-  onRowPress () {
-      Actions.employeeCreate({ employee: this.props.employee });
+  onRowPress() {
+    Actions.employeeEdit({ employee: this.props.employee });
   }
 
   render() {
@@ -21,7 +21,7 @@ class ListItem extends Component {
           </CardSection>
         </View>
       </TouchableWithoutFeedback>
-    )
+    );
   }
 }
 
@@ -30,6 +30,6 @@ const styles = {
     fontSize: 18,
     paddingLeft: 15
   }
-}
+};
 
 export default ListItem;

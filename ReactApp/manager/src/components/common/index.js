@@ -1,9 +1,7 @@
 export * from './Button';
-export * from './Header';
 export * from './Card';
 export * from './CardSection';
+export * from './Header';
 export * from './Input';
-export * from './Spinner'
-
-// Folder is to make it easier to import multiple reusable components
-// These will be common components that are used throughout the app
+export * from './Spinner';
+export * from './Confirm';
