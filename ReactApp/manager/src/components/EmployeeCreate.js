@@ -4,6 +4,7 @@ import { Picker, Text } from 'react-native';
 import * as actions from '../actions';
 import { Card, CardSection, Input, Button } from './common';
 
+
 class EmployeeCreateForm extends Component {
   onButtonPress() {
     const { employeeCreate } = actions;
@@ -14,6 +15,7 @@ class EmployeeCreateForm extends Component {
 
   render() {
     const { employeeUpdate, employeeCreate } = actions;
+
     return (
       <Card>
         <CardSection>
@@ -38,6 +40,7 @@ class EmployeeCreateForm extends Component {
             selectedValue={this.props.shift}
             onValueChange={value => this.props.employeeUpdate({prop: 'shift', value})}
           >
+            <Picker.Item label="Pick a shift" value="" />
             <Picker.Item label="Monday" value="Monday" />
             <Picker.Item label="Tuesday" value="Tuesday" />
             <Picker.Item label="Wednesday" value="Wednesday" />
